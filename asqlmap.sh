@@ -40,7 +40,7 @@
 		5) echo "\nTable name: "; read tabella; sqlmap -u $1 --random-agent -b --dump -T $tabella --tor;echo "\nDump of the table '$tabella' done\n\nPress any key to continuee";read tasto;$0 $1;;
 		6) echo "\nDatabase name: "; read database; sqlmap -u $1 --random-agent -b --dump -D $database --tor;echo "\nDump of the database '$database' done\n\nPress any key to continue";read tasto;$0 $1;;
 		7) sqlmap -u $1 --random-agent  -b --dump-all --tor;echo "\nDump of all databases done\n\nPress any key to continue";read tasto;$0 $1;;
-		8) sudo sqlmap --update; echo "Update done\nPress any key to continue";read tasto;.$0 $1;;
+		8) sudo sqlmap --update; echo "Update done\nPress any key to continue";read tasto;$0 $1;;
 		9) echo "\nBye bye =)\n"; exit 0;;
 		q) echo "\nBye bye =)\n"; exit 0;;
 		*) echo "Not valid command\nPress any key to continue";read tasto;$0 $1;;
