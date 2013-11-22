@@ -53,11 +53,23 @@ chmod +x asqlmap.sh
 Test an URL
 -------
 
-./asqlmap.sh "URL"
+USAGE:
+	./asqlmap.sh URL [OPTIONS]
+	
+Options:
 
-Eg. ./asqlmap.sh "http://www.example.com"
+	-r <risk value>		Risk of test to perform (0-3, default 1)
+	
+	-l <level value>	Level of test to perform (1-5, default 1)
+	
+	-h,-help		Show this help
+	
+
+Eg. ./asqlmap.sh "http://www.example.com" -r 2 -l 3
 
 NOTE: Don't forget to add " at the beginning and at the end of the URL to support more than one GET variables.
+
+See sqlmap documentation to understand risk (https://github.com/sqlmapproject/sqlmap/wiki/Usage#risk) and level (https://github.com/sqlmapproject/sqlmap/wiki/Usage#level) options
 
 Search URL with Google Dork
 -------
