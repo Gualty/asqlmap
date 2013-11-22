@@ -9,12 +9,19 @@ Asqlmap is very simple to use: you only need to specify the target. Then from th
 With asqlmap you can:
 
 1) Vulnerability check and information research (Databases,tables)
+
 2) Users, passwords and privileges research
+
 3) Open SQL Shell
+
 4) Open OS Shell
+
 5) Dump single table
+
 6) Dump single database
+
 7) Dump all databases
+
 
 Asqlmap is pre-configured to keeps your anonymity safe using Tor for every operation and using a random User Agent for each test.
 
