@@ -45,9 +45,11 @@ chmod +x asqlmap.sh
 Test an URL
 -------
 
-./asqlmap.sh URL
+./asqlmap.sh "URL"
 
-Eg. ./asqlmap.sh http://www.example.com
+Eg. ./asqlmap.sh "http://www.example.com"
+
+NOTE: Don't forget to add " at the beginning and at the end of the URL to support more than one GET variables.
 
 Search URL with Google Dork
 -------
@@ -59,8 +61,4 @@ Eg. ./asqlmap.sh -g inurl:index.php?id=
 Know issues
 -------
 
-At this moment you can only provide a single GET url to asqlmap. If you provide more than one GET in the URL asqlmap will automatically exit from the script.
-
-Eg. ./asqlmap.sh http://www.example.com/index.php?id=1    OK
-
-./asqlmap.sh http://www.example.com/index.php?id=1&op=2    NO
+None at the moment
