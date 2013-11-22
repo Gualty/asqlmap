@@ -33,7 +33,7 @@
 		printf "\nNo URL specified. \nEg. ./asqlmap.sh http://www.example.com/index.php?id= \n\nPress any key to close asqlmap\n";read tasto;exit;
 	fi
 	if [ "$1" = "-h" ] || [ "$1" = "-help" ]; then
-		echo "USAGE:\n\t./asqlmap.sh URL [OPTIONS]\nOptions:\n\t-r <risk value>\t\tRisk of test to perform (0-3, default 1)\n\t-l <level value>\tLevel of test to perform (1-5, default 1)\n\t-h,-help\t\tShow this help"
+		echo "USAGE:\n\t./asqlmap.sh \"URL\" [OPTIONS]\nOptions:\n\t-r <risk value>\t\tRisk of test to perform (0-3, default 1)\n\t-l <level value>\tLevel of test to perform (1-5, default 1)\n\t-h,-help\t\tShow this help"
 		exit 0
 	fi
 	# The options menu
