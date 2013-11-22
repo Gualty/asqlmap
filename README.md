@@ -56,3 +56,11 @@ Search URL with Google Dork
 
 Eg. ./asqlmap.sh -g inurl:index.php?id=
 
+Know issues
+-------
+
+At this moment you can only provide a single GET url to asqlmap. If you provide more than one GET in the URL asqlmap will automatically exit from the script.
+
+Eg. ./asqlmap.sh http://www.example.com/index.php?id=1    OK
+
+./asqlmap.sh http://www.example.com/index.php?id=1&op=2    NO
