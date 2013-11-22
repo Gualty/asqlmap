@@ -1,0 +1,4 @@
+asqlmap
+=======
+
+Automated sqlmap
