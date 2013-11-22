@@ -1,8 +1,10 @@
-asqlmap - Automated sqlmap
+asqlmap - Automated sqlmap for BackBox
 =======
 
 Asqlmap is a terminal interface to automatize the famous SQL Injection's tool sqlmap.
 It provides a very simple interface to quickly perform sqlmap's tests on a specific target.
+
+This version of asqlmap was tested on BackBox Linux.
 
 Asqlmap is very simple to use: you only need to specify the target. Then from the interface you can choose which test you want to perform.
 
