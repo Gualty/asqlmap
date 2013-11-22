@@ -35,6 +35,14 @@ sqlmap is an open source penetration testing tool that automates the process of 
 
 For further information about sqlmap visit their github webpage: https://github.com/sqlmapproject/sqlmap
 
+Requirements:
+-------
+
+- sqlmap (On BackBox is just installed)
+- Tor (installed and running)
+- Polipo (installed and running)
+
+
 How to use asqlmap
 -------
 
