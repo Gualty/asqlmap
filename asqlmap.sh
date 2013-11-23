@@ -48,8 +48,9 @@
 	printf "6) Dump single database\n"
 	printf "7) Dump all databases\n"
 	printf "============================================================================\n"
-	printf "8) Update to the latest GIT version of sqlmap\n"
-	printf "9) Quit\n"
+	printf "8) Update this tool\n"
+	printf "9) Update sqlmap\n"
+	printf "0) Quit\n"
 	printf "Choise: "
 	read choice
 	# Execute the right operation based on the choice of the user
@@ -61,8 +62,10 @@
 		5) echo "\nTable name: "; read tabella; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -T $tabella --tor;echo "\nDump of the table '$tabella' done\n\nPress any key to continuee";read tasto;$0 $1 $2 $3 $4 $5;;
 		6) echo "\nDatabase name: "; read database; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -D $database --tor;echo "\nDump of the database '$database' done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
 		7) sqlmap -u $1 --random-agent  --level=$l --risk=$r -b --dump-all --tor;echo "\nDump of all databases done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
-		8) sudo sqlmap --update; echo "Update done\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
-		9) echo "\nBye bye =)\n"; exit 0;;
+		8) git pull; echo "\nasqlmap updated\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		9) sudo sqlmap --update; echo "\nsqlmap updated\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		0) echo "\nBye bye =)\n"; exit 0;;
 		q) echo "\nBye bye =)\n"; exit 0;;
-		*) echo "Not valid command\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		quit) echo "\nBye bye =)\n"; exit 0;;
+		*) echo "\nNot valid command\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
 	esac
