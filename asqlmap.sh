@@ -1,6 +1,7 @@
 #!/bin/sh
 	clear
-	printf "**		Automated sqlmap (asqlmap) for BackBox v. 0.9.5 	  **\n"
+	ver="0.9.6"
+	printf "**		Automated sqlmap (asqlmap) for BackBox v. $ver 	  **\n"
 	printf "   		           developed by Gualty    \n"
 	printf "   		         http://github.com/Gualty    \n"
 	printf "\n\nEach operation will be performed using the --tor flag for your anonymity"
@@ -33,7 +34,11 @@
 		printf "\nNo URL specified. \nEg. ./asqlmap.sh http://www.example.com/index.php?id= \n\nPress any key to close asqlmap\n";read tasto;exit;
 	fi
 	if [ "$1" = "-h" ] || [ "$1" = "-help" ]; then
-		echo "USAGE:\n\t./asqlmap.sh \"URL\" [OPTIONS]\nOptions:\n\t-r <risk value>\t\tRisk of test to perform (0-3, default 1)\n\t-l <level value>\tLevel of test to perform (1-5, default 1)\n\t-h,-help\t\tShow this help"
+		echo "USAGE:\n\t./asqlmap.sh \"URL\" [OPTIONS]\nOptions:\n\t-r <risk value>\t\tRisk of test to perform (0-3, default 1)\n\t-l <level value>\tLevel of test to perform (1-5, default 1)\n\t-h,-help\t\tShow this help\n\t-v\t\t\tShow the version of asqlmap"
+		exit 0
+	fi
+	if [ "$1" = "-v" ]; then
+		echo "\nasqlmap v. $ver\n"
 		exit 0
 	fi
 	# The options menu
