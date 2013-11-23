@@ -64,6 +64,8 @@ Options:
 	
 	-h,-help		Show this help
 	
+	-v			Show the version of asqlmap
+	
 
 Eg. ./asqlmap.sh "http://www.example.com" -r 2 -l 3
 
