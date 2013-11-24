@@ -1,6 +1,6 @@
 #!/bin/sh
 	clear
-	ver="0.9.6"
+	ver="0.9.7"
 	printf "**		Automated sqlmap (asqlmap) for BackBox v. $ver 	  **\n"
 	printf "   		           developed by Gualty    \n"
 	printf "   		         http://github.com/Gualty    \n"
@@ -34,11 +34,15 @@
 		printf "\nNo URL specified. \nEg. ./asqlmap.sh http://www.example.com/index.php?id= \n\nPress any key to close asqlmap\n";read tasto;exit;
 	fi
 	if [ "$1" = "-h" ] || [ "$1" = "-help" ]; then
-		echo "USAGE:\n\t./asqlmap.sh \"URL\" [OPTIONS]\nOptions:\n\t-r <risk value>\t\tRisk of test to perform (0-3, default 1)\n\t-l <level value>\tLevel of test to perform (1-5, default 1)\n\t-h,-help\t\tShow this help\n\t-v\t\t\tShow the version of asqlmap"
+		echo "USAGE:\n\t./asqlmap.sh \"URL\" [OPTIONS]\nOptions:\n\t-r <risk value>\t\tRisk of test to perform (0-3, default 1)\n\t-l <level value>\tLevel of test to perform (1-5, default 1)\n\t-purge-output\t\tSecurely erase the sqlmap output directory\n\t-h,-help\t\tShow this help\n\t-v\t\t\tShow the version of asqlmap"
 		exit 0
 	fi
 	if [ "$1" = "-v" ]; then
 		echo "\nasqlmap v. $ver\n"
+		exit 0
+	fi
+	if [ "$1" = "-purge-output" ]; then
+		printf "\nATTENTION: this operation will be irreversible.\nDon't worry if an error of sqlmap appear. It is a temporany sqlmap bug\nPress ENTER to continue or CTRL+C to abort.\n";read tasto;sqlmap --purge-output;printf "sqlmap output folder was securely purged\n\nPress any key to continue";read tasto;
 		exit 0
 	fi
 	# The options menu
