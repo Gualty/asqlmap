@@ -85,7 +85,14 @@ Search URL with Google Dork
 
 ./asqlmap.sh -g GOOGLEDORK
 
-Eg. ./asqlmap.sh -g inurl:index.php?id=
+Eg. ./asqlmap.sh -g "inurl:index.php?id="
+
+To scan a website for Google Dork
+
+Eg. ./asqlmap.sh -g "site:http://www.example.com ext:php"
+
+NOTE: The funtion Google Dork will not use Tor, so you will not be anonymous.
+
 
 Know issues
 -------
