@@ -10,7 +10,7 @@
 	
 	#Variables from the command line
 	l="1"
-	r="0"
+	r="1"
 	if [ "$2" = "-r" ]; then
 		r=$3
 	fi
