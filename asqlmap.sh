@@ -7,14 +7,10 @@
 	printf "\n\nEach operation will be performed using the --tor flag for your anonymity"
 	printf "\n		** Check that TOR and Polipo are running **\n"
 	
-	#Google Dork
-	case $1 in
-	-g) echo "\nATTENTION: Google Dork search will not use Tor.\nPress ENTER to continue at your own risk or CTRL+C to close asqlmap\n";read tasto;sqlmap -g $2 --random-agent -b --dbs --table;echo "Google Dork search done\n\nPress any key to close asqlmap";read tasto;exit;;
-	esac
 	
 	#Variables from the command line
 	l="1"
-	r="1"
+	r="0"
 	if [ "$2" = "-r" ]; then
 		r=$3
 	fi
@@ -28,6 +24,10 @@
 		l=$5
 	fi
 	
+	#Google Dork
+	case $1 in
+	-g) echo "\nATTENTION: Google Dork search will not use Tor, so you will not be anonymous.\nPress ENTER to continue at your own risk or CTRL+C to close asqlmap\n";read tasto;sqlmap -g $2 --random-agent -b --dbs --table --eta --cleanup --check-waf --identify-waf;echo "Google Dork search done\n\nPress any key to close asqlmap";read tasto;exit;;
+	esac
 	#Check if the user specified an URL if is not a Google Dork search
 	if [ -z "$1" ]
 	then
