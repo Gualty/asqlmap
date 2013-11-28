@@ -7,6 +7,12 @@
 	printf "\n\nEach operation will be performed using the --tor flag for your anonymity"
 	printf "\n		** Check that TOR and Polipo are running **\n"
 	
+	#Check if sqlmap is installed on the system
+	sqlmapexist=$(which sqlmap)
+	if [ -z "$sqlmapexist" ]; then
+		echo "ERROR: sqlmap is not installed!\n\n Install it before run sqlmap"
+		exit 0
+	fi
 	
 	#Variables from the command line
 	l="1"
