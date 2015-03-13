@@ -32,7 +32,6 @@
 	
 	#Google Dork
 	case $1 in
-	-g) echo "\nATTENTION: Google Dork search will not use Tor, so you will not be anonymous.\nPress ENTER to continue at your own risk or CTRL+C to close asqlmap\n";read tasto;sqlmap -g $2 --random-agent -b --dbs --table --eta --cleanup --check-waf --identify-waf;echo "Google Dork search done\n\nPress any key to close asqlmap";read tasto;exit;;
 	esac
 	#Check if the user specified an URL if is not a Google Dork search
 	if [ -z "$1" ]
