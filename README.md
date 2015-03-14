@@ -63,6 +63,8 @@ Options after URL:
 	
 	-l <level value>	Level of test to perform (1-5, default 1)
 	
+	-t <# of threads>   Number of threads (1-10, default 1)
+	
 Options without URL:
 
 	-g <google dork>	Search for Google Dorks
