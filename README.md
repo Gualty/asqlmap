@@ -71,9 +71,9 @@ Options without URL:
 	
 	-purge-output		Securely erase the sqlmap output directory
 	
-	-h,-help		Show this help
+	-h,-help		    Show this help
 	
-	-v			Show the version of asqlmap
+	-v			        Show the version of asqlmap
 	
 
 Eg. ./asqlmap.sh "http://www.example.com" -r 2 -l 3
