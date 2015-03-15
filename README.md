@@ -38,9 +38,9 @@ For further information about sqlmap visit their github webpage: https://github.
 Requirements:
 -------
 
-- sqlmap (On BackBox is just installed)
-- Tor (installed and running)
-- Polipo (installed and running)
+- sqlmap
+- Anonymous mode (Start it using the button in the BackBox menu)
+- Polipo (Starts it before execute asqlmap)
 
 
 How to use asqlmap
@@ -95,6 +95,12 @@ Eg. ./asqlmap.sh -g "site:http://www.example.com ext:php"
 
 NOTE: The funtion Google Dork will not use Tor, so you will not be anonymous.
 
+Anonymous mode on BackBox
+-------
+The new version of BackBox introduces a new function for you anonimity. It redirects the entire traffic through the TOR network. To do this some changes was necessary. Asqlmap was modified to correctly recognize TOR. 
+Be only sure to start the anonymous mode before execute asqlmap.
+
+*Note:* Don't worry if during the execution a message about TOR tell you to check if TOR is enabled. It is normal.
 
 Know issues
 -------
